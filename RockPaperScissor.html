@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-...">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+
+    <div class="main container-fluid">
+
+
+        <h1> Rock-Paper-Scissor
+            <hr>
+        </h1>
+        <div class="resultDisplay">
+            <div class="mn">
+
+                <div id="usr">
+
+                </div>
+
+                <div id="machine">
+
+                </div>
+
+            </div>
+
+            <div id="rslt">
+
+            </div>
+
+        </div>
+        <div id="result" class="disply">
+            <button id="b1" class="shakeButton" onclick="cal('rock',this)"><i
+                    class="fa-solid fa-hand-back-fist fa-rotate-90"></i></button>
+            <button id="b2" class="shakeButton" onclick="cal('paper',this)"><i
+                    class="fa-solid fa-hand fa-rotate-90"></i></button>
+            <button id="b3" class="shakeButton" onclick="cal('scissor',this)"><i
+                    class="fa-solid fa-hand-peace fa-rotate-90"></i></button>
+
+        </div><br>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+
+    <script language="javascript" type="text/javascript">
+        const choices = ["rock", "paper", "scissor"]
+        var userChoice;
+
+        let x = '';
+        function cal(userChoice, clickedbtn) {
+
+            const compChoice = choices[Math.floor(Math.random() * 3)];
+
+            shakeButton(clickedbtn);
+
+            if (userChoice === compChoice) {
+
+                if(compChoice == 'scissor')
+                x +=
+                                `<i class="fa-solid fa-hand-peace fa-rotate-270 ">
+                        </i>`;
+                else if(compChoice=='rock')
+                x +=
+                                `<i class="fa-solid fa-hand-back-fist fa-rotate-270">
+                        </i>`;
+                else
+                x +=
+                                `<i class="fa-solid fa-hand fa-rotate-270 ">
+                        </i>`;
+
+
+                setTimeout(() => {
+                    document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                    document.getElementById('machine').innerHTML = x;
+                }, 800);
+
+                setTimeout(() => {
+                    document.getElementById('rslt').innerHTML = `It's a TIE`;
+                }, 1600);
+
+
+            }
+
+            else {
+
+                switch (userChoice) {
+
+                    case 'rock': if (compChoice === 'scissor') {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand-peace fa-rotate-270 ">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You WON`;
+                        }, 1600);
+
+                    }
+                    else {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand fa-rotate-270">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You LOOSE`;
+                        }, 1600);
+
+                    }
+                        break;
+
+
+                    case 'paper': if (compChoice === 'rock') {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand-back-fist fa-rotate-270">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You WON`;
+                        }, 1600);
+
+                    }
+                    else {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand-peace fa-rotate-270 ">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You LOOSE`;
+                        }, 1600);
+
+                    }
+
+                        break;
+
+                    case 'scissor': if (compChoice === 'paper') {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand fa-rotate-270 ">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You WON`;
+                        }, 1600);
+
+                    }
+                    else {
+
+                        setTimeout(() => {
+                            document.getElementById('usr').innerHTML = clickedbtn.innerHTML;
+                            x +=
+                                `<i class="fa-solid fa-hand-back-fist fa-rotate-270">
+                        </i>`;
+                            document.getElementById('machine').innerHTML = x;
+
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('rslt').innerHTML = `You LOOSE`;
+                        }, 1600);
+
+                    }
+                        break;
+
+
+                }
+
+            }
+
+            setTimeout(() => {
+                x = "";
+                document.getElementById('usr').innerHTML = '';
+                document.getElementById('machine').innerHTML = '';
+                document.getElementById('rslt').innerHTML = '';
+
+            }, 4500);
+
+
+            function shakeButton(clickedbtn) {
+
+                clickedbtn.classList.add('shake');
+
+                setTimeout(() => {
+                    clickedbtn.classList.remove('shake');
+
+                }, 800);
+            }
+        }
+    </script>
+</body>
+
+</html>
